@@ -74,3 +74,12 @@ button.delete {
 button.complete {
     background: green;
 }
+
+.notification {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    display: none; 
+}

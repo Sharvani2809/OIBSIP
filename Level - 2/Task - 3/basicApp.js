@@ -2,10 +2,10 @@ const addTaskBtn = document.getElementById('addTaskBtn');
 const taskInput = document.getElementById('task');
 const pendingTasksList = document.getElementById('pendingTasksList');
 const completedTasksList = document.getElementById('completedTasksList');
+const notification = document.getElementById('notification');
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// Initial render of tasks from local storage
 renderTasks();
 
 addTaskBtn.addEventListener('click', addTask);
@@ -22,8 +22,9 @@ function addTask() {
         taskInput.value = '';
         saveTasks();
         renderTasks();
+        showNotification("Task added successfully!");
     } else {
-        alert("Please enter a task.");
+        showNotification("Please enter a task.");
     }
 }
 
@@ -52,19 +53,30 @@ function completeTask(index) {
     tasks[index].completed = true;
     saveTasks();
     renderTasks();
+    showNotification("Task marked as completed!");
 }
 
 function editTask(index) {
     taskInput.value = tasks[index].text;
-    deleteTask(index); // Remove the task to be edited from the list
+    deleteTask(index); 
 }
 
 function deleteTask(index) {
+    const taskText = tasks[index].text; 
     tasks.splice(index, 1);
     saveTasks();
     renderTasks();
+    showNotification(`Task "${taskText}" has been deleted!`);
 }
 
 function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function showNotification(message) {
+    notification.textContent = message;
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 3000); 
 }
