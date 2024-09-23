@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Login System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Login System</h1>
+        <div id="registration" class="form-container">
+            <h2>Register</h2>
+            <input type="text" id="regUsername" placeholder="Username" />
+            <input type="password" id="regPassword" placeholder="Password" />
+            <button id="registerBtn">Register</button>
+            <div id="regMessage"></div>
+        </div>
+
+        <div id="login" class="form-container">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username" />
+            <input type="password" id="loginPassword" placeholder="Password" />
+            <button id="loginBtn">Login</button>
+            <div id="loginMessage"></div>
+        </div>
+
+        <div id="securedPage" class="form-container" style="display:none;">
+            <h2>Secured Page</h2>
+            <p>Welcome to the secured area!</p>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
+
